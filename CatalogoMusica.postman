@@ -1,0 +1,93 @@
+{
+  "info": {
+    "_postman_id": "c29d7af2-5122-4dd8-b0e8-95659904f02d",
+    "name": "CatalogoMusica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50214043"
+  },
+  "item": [
+    {
+      "name": "obtenerAlbumes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/albumes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "albumes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crearAlbum",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"titulo\": \"Random Access Memories\",\r\n\"artista\": \"Daft Punk\",\r\n\"anio\": 2013\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/albumes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "albumes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crearCancion",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"titulo\": \"Instant Crush\",\r\n\"duracion\": 337,\r\n\"albumId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/canciones",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "canciones"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtenerCanciones",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
