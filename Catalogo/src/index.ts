@@ -1,14 +1,11 @@
-import express, {type Request, type Response} from 'express';
-
+import express from "express";
+import albumRouter from "./routes/albumes.js"
 const app = express();
 const PORT = 3000;
 
-app.use(express.json())
-
-app.get("/pin", (req: Request, res: Response)=>{  
-    res.send("Servidor funcionado con TypeScript");  
+app.use(express.json());
+app.use("/albumes",albumRouter)
+app.listen(PORT,()=>{
+    console.log("Servidor corriendo en el puerto ",PORT);
 })
 
-app.listen(PORT, ()=>{  
-    console.log("Servidor corriendo en el puerto: ", PORT)  
-})
