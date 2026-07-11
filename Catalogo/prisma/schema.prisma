@@ -4,29 +4,34 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url="postgresql://postgres:123MARCE#@localhost:5432/catalogoMusica?schema=public"
+ 
 }
 
 model Album {
-id Int @id @default(autoincrement())
-titulo String
-artista String
-anio Int
-canciones Cancion[] // Un álbum tiene muchas canciones
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  artista   String
+  anio      Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  canciones Cancion[] // Un álbum tiene muchas canciones
 }
+
 model Cancion {
-id Int @id @default(autoincrement())
-titulo String
-duracion Int // Duración en segundos (ej. 240)
-albumId Int // Clave foránea obligatoria
-// Establecemos la relación y definimos el borrado en cascada
-(onDelete: Cascade)
-album Album @relation(fields: [albumId], references: [id],
-onDelete: Cascade)
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  duracion  Int      // Duración en segundos (ej. 240)
+  albumId   Int      // Clave foránea obligatoria
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relación con borrado en cascada
+  album     Album @relation(fields: [albumId], references: [id], onDelete: Cascade)
 }
