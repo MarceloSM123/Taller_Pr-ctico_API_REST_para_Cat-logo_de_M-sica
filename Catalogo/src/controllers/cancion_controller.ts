@@ -1,9 +1,11 @@
 import {type Request,type Response} from "express"
 import prisma from "../database/prisma.js"
 
+
 export const crearCancion=async(req: Request,res: Response)=>{
 
 const {titulo,duracion,albumId}=req.body;
+
 try{
 const nuevaCancion=await prisma.cancion.create({   
     data:{titulo,duracion,albumId}

@@ -51,3 +51,17 @@ res.json({Exito:"El album a sido eliminado"})
 res.status(404).json({error: "Album no encontrado"})
     }
 }
+
+export const obtenerAlbumesId = async (req: Request, res: Response) => {
+    const {id }=req.params;
+    try {
+        const albumes = await prisma.album.findUnique({
+            where:{id: Number (id)}
+    });
+        res.json(albumes);
+    } catch (error) {
+        res.status(404).json({ error: "Error al obtener los album" });
+    }
+}
+
+//finunique

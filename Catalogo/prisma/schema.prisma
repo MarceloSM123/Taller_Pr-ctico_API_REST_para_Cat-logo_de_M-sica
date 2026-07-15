@@ -22,6 +22,7 @@ model Album {
   updatedAt DateTime @updatedAt
 
   canciones Cancion[] // Un álbum tiene muchas canciones
+  genero Genero[]
 }
 
 model Cancion {
@@ -35,3 +36,12 @@ model Cancion {
   // Relación con borrado en cascada
   album     Album @relation(fields: [albumId], references: [id], onDelete: Cascade)
 }
+
+model Genero {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  albumId   Int      // Clave foránea obligatoria
+  // Relación con borrado en cascada
+  album     Album @relation(fields: [albumId], references: [id], onDelete: Cascade)
+}
+
